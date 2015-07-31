@@ -27,7 +27,9 @@ This will allow me to easily add new frameworks and lessen the burden of managin
 ## Usage
 1. If you don't already have Yeoman installed you'll need to install it as well.
   * `npm install yo`
-1. Start Gulp to run a local development server
+1. Install the generator.
+  * `npm install generator-threshold`
+1. Start Gulp to run a local development server.
   * `gulp`
 
 ## Roadmap
