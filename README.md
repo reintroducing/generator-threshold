@@ -33,7 +33,7 @@ This will allow me to easily add new frameworks and lessen the burden of managin
   * `gulp`
 
 #### One Step Install/Run
-`npm i -g yo, generator-threshold && gulp`
+`npm i -g yo generator-threshold && gulp`
 
 ## Roadmap
 * Add generator input for different types of licenses to automatically generate them
