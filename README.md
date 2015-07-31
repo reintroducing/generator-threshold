@@ -25,9 +25,9 @@ This will allow me to easily add new frameworks and lessen the burden of managin
   * Icon font support
 
 ## Usage
-* If you don't already have Yeoman installed you'll need to install it as well.
+1. If you don't already have Yeoman installed you'll need to install it as well.
   * `npm install yo`
-* Start Gulp to run a local development server
+1. Start Gulp to run a local development server
   * `gulp`
 
 ## Roadmap
