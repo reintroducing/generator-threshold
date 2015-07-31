@@ -26,11 +26,14 @@ This will allow me to easily add new frameworks and lessen the burden of managin
 
 ## Usage
 1. If you don't already have Yeoman installed you'll need to install it as well.
-  * `npm install yo`
+  * `npm install yo -g`
 1. Install the generator.
-  * `npm install generator-threshold`
+  * `npm install generator-threshold -g`
 1. Start Gulp to run a local development server.
   * `gulp`
+
+### One Step Install/Run
+`npm i -g yo, generator-threshold && gulp`
 
 ## Roadmap
 * Add generator input for different types of licenses to automatically generate them
