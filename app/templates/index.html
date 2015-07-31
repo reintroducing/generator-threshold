@@ -1,0 +1,25 @@
+<!doctype html>
+<!--[if IE 9 ]><html lang="en" class="ie ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+    <head>
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+
+        <title><%= title %></title>
+
+        <!-- build:css css/main.min.css -->
+        <link rel="stylesheet" href="css/main.css">
+        <!-- endbuild -->
+    </head>
+
+    <body>
+        <div class="wrapper"></div>
+
+        <!-- build:js js/main.min.js -->
+        <% if (usejQuery && !useBrowserify) { %><script src="node_modules/jquery/dist/jquery.js"></script><% } %>
+        <% if (useBrowserify) { %><script src="js/bundle.js"></script><% } else { %><script src="js/main.js"></script><% } %>
+        <!-- endbuild -->
+    </body>
+</html>

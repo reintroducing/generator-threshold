@@ -1,0 +1,40 @@
+{
+  "name": "<%= slug %>",
+  "version": "0.0.1",
+  "description": "<%= description %>",
+  "author": "<%= name %> <<%= email %>>",
+  "main": <% if (useBrowserify) { %>"js/app.js"<% } else { %>"js/main.js"<% } %>,
+  "repository": {
+    "type": "git",
+    "url": "<%= git %>"
+  }<% if (useBrowserify && (usejQuery || useBackbone || useBabel || useReact)) { %>,
+  "browserify": {
+    "transform": [
+      "browserify-shim"<% if (useBackbone) { %>,
+      "node-underscorify"<% } %><% if (useBabel || useReact) { %>,
+      "babelify"<% } %>
+    ]
+  }<% if (usejQuery && useBackbone) { %>,
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js",
+    "underscore": "./node_modules/lodash",
+    "backbone": "./node_modules/backbone/backbone.js"
+  },
+  "browserify-shim": {
+    "jquery": "$",
+    "underscore": "_",
+    "backbone": {
+      "depends": [
+        "jquery",
+        "underscore:_"
+      ],
+      "exports": "Backbone"
+    }
+  }<% } else if (usejQuery && useBrowserify) { %>,
+  "browser": {
+    "jquery": "./node_modules/jquery/dist/jquery.js"
+  },
+  "browserify-shim": {
+    "jquery": "$"
+  }<% } %><% } %>
+}

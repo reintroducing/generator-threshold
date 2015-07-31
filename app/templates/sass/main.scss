@@ -1,0 +1,140 @@
+@import "base";
+
+/* ----------------------------------------------------------------------------- *\
+   RESETS
+\* ----------------------------------------------------------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background: rgba(179, 212, 252, 1);
+    text-shadow: none;
+}
+
+audio,
+canvas,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+button,
+input,
+select {
+    color: $color-primary;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    color: $color-primary;
+    resize: vertical;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgba(204, 204, 204, 1);
+    margin: 1em 0;
+    padding: 0;
+}
+
+p,
+ol,
+ul,
+blockquote,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+/* ----------------------------------------------------------------------------- *\
+   UTILITIES
+\* ----------------------------------------------------------------------------- */
+
+%clearfix {
+    &:after {
+        content: " ";
+        display: table;
+        clear: both;
+    }
+}
+
+%ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 150%;
+    }
+}
+
+.clearfix {
+    @extend %clearfix;
+}
+
+.ir {
+    @extend %ir;
+}
+
+/* ----------------------------------------------------------------------------- *\
+   GLOBAL LAYOUT
+\* ----------------------------------------------------------------------------- */
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-y: scroll;
+}
+
+body {
+    @include font-family("Helvetica");
+    @include font-size($base-font-size);
+    color: $color-primary;
+    line-height: 1.4;
+}
+
+/* ----------------------------------------------------------------------------- *\
+   GLOBAL TYPOGRAPHY
+\* ----------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+%a-shared {
+    text-decoration: none;
+}
+
+a {
+    @extend %a-shared;
+
+    &:visited {
+        @extend %a-shared;
+    }
+}

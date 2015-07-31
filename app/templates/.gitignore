@@ -1,0 +1,12 @@
+*.DS_Store
+.sass-cache
+.tmp
+.ftppass
+_internal
+_dist
+npm-debug.log
+node_modules
+css/main.css
+css/main.css.map
+<% if (useBrowserify) { %>js/bundle.js
+js/bundle.js.map<% } %>

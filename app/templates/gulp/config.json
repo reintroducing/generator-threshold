@@ -1,0 +1,10 @@
+{
+    "dist": "_dist",
+    "dev": "./",
+    "css": "css",
+    "sass": "sass",
+    "fonts": "fonts",
+    "js": "js",
+    "img": "images"<% if (useSprites) { %>,
+    "sprites": "sprites"<% } %>
+}
