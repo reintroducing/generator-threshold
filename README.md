@@ -25,11 +25,10 @@ This will allow me to easily add new frameworks and lessen the burden of managin
   * Icon font support
 
 ## Usage
-If you don't already have Yeoman installed you'll need to install it as well.
-
-* `npm install yo`
+* If you don't already have Yeoman installed you'll need to install it as well.
+  * `npm install yo`
 * Start Gulp to run a local development server
-  `gulp`
+  * `gulp`
 
 ## Roadmap
 * Add generator input for different types of licenses to automatically generate them
