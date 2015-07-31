@@ -16,13 +16,13 @@ This will allow me to easily add new frameworks and lessen the burden of managin
 * Image minification *(requires JPEGmini but can be turned off)*
 * Stub JS code depending on what/if a framework is chosen
 * Options
-    ** Browserify with Watchify
-    ** ES6 (Babel)
-    ** jQuery
-    ** Backbone with Lodash
-    ** React (with additional React ESLint enabled)
-    ** CSS sprite generation
-    ** Icon font support
+  * Browserify with Watchify
+  * ES6 (Babel)
+  * jQuery
+  * Backbone with Lodash
+  * React (with additional React ESLint enabled)
+  * CSS sprite generation
+  * Icon font support
 
 ## Roadmap
 * Add generator input for different types of licenses to automatically generate them
