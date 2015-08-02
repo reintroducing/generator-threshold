@@ -1,0 +1,71 @@
+@import "../sprites/sprites-1x";
+@import "../sprites/sprites-2x";
+
+@mixin sprite-size($image, $map) {
+    $width: map-get(map-get($map, $image), "total-width");
+    $height: map-get(map-get($map, $image), "total-height");
+
+    background-size: ceil($width / 2) ceil($height / 2);
+}
+
+@mixin sprite-width($image, $map, $retina: false) {
+    @if $retina == true {
+        width: ceil(map-get(map-get($map, $image), "width") / 2) + 1;
+    } @else {
+        width: map-get(map-get($map, $image), "width");
+    }
+}
+
+@mixin sprite-height($image, $map, $retina: false) {
+    @if $retina == true {
+        height: ceil(map-get(map-get($map, $image), "height") / 2) + 1;
+    } @else {
+        height: map-get(map-get($map, $image), "height");
+    }
+}
+
+@mixin sprite-position($image, $map, $retina: false) {
+    @if $retina == true {
+        background-position: ceil(map-get(map-get($map, $image), "offset-x") / 2) ceil(map-get(map-get($map, $image), "offset-y") / 2);
+    } @else {
+        background-position: map-get(map-get($map, $image), "offset-x") map-get(map-get($map, $image), "offset-y");
+    }
+}
+
+@mixin sprite-image($image, $map) {
+    background-image: url(map-get(map-get($map, $image), "image"));
+}
+
+@mixin sprite($image, $size: true) {
+    $sprite-map: $sprite-1x;
+
+    @include sprite-image($image, $sprite-map);
+    @include sprite-position($image, $sprite-map);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    display: inline-block;
+
+    @if $size {
+        @include sprite-width($image, $sprite-map);
+        @include sprite-height($image, $sprite-map);
+    }
+
+    @media
+        only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (   min--moz-device-pixel-ratio: 2),
+        only screen and (     -o-min-device-pixel-ratio: 2/1),
+        only screen and (        min-device-pixel-ratio: 2),
+        only screen and (                min-resolution: 2dppx) {
+
+        $sprite-map: $sprite-2x;
+
+        @include sprite-image($image, $sprite-map);
+        @include sprite-size($image, $sprite-map);
+        @include sprite-position($image, $sprite-map, true);
+
+        @if $size {
+            @include sprite-width($image, $sprite-map, true);
+            @include sprite-height($image, $sprite-map, true);
+        }
+    }
+}

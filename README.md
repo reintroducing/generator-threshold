@@ -66,10 +66,13 @@ A task is included (`gulp resize-sprites`) that will resize the @2x versions of 
 ### Spritesheets
 The spritesheets get generated every time you run Gulp (or manually run the `sprites` task). Usage is as follows:
 
-1. The first time you generate sprites you'll have to import the mixin into `/sass/_base.scss`:
+1. The first time you generate sprites you'll have to also import the mixin into `/sass/_base.scss`:
   * @import "mixins/sprite";
   * *You only have to do this once.*
-1.
+1. Use the sprite mixin in Sass:
+  * @include sprite("[name-of-sprite]");
+  * The name-of-sprite is the name of the original PNG file that was used to create the sprite (name-of-sprite.png).
+  * It is recommended to name your files using kebab-case (name-of-sprite.png).
 
 ## Roadmap
 * Fill out ES5 and ES6 boilerplates for all included JS frameworks

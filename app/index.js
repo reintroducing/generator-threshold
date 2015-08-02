@@ -139,7 +139,7 @@ module.exports = generators.Base.extend({
         this.fs.copyTpl(this.templatePath('.eslintrc'), this.destinationPath('.eslintrc'), config);
         this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('gulpfile.js'), config);
         this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), config);
-        this.fs.copyTpl(this.templatePath('LICENSE'), this.destinationPath('LICENSE'), config);
+        this.fs.copyTpl(this.templatePath('licenses/MIT'), this.destinationPath('LICENSE'), config);
         this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), config);
         this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), config);
 
@@ -194,8 +194,7 @@ module.exports = generators.Base.extend({
 
         // test lodash usage in JS with Backbone
         //
-        // test sprite usage in sass (may need actual sprites mixin)
-        // also check gulp.spritesmith for better way to do retina
+        // check gulp.spritesmith for better way to do retina
         //
         // maybe a checkbox for different licenses and have them in a licenses folder
         // in templates and based on which is selected gets copied to LICENSE?
