@@ -66,10 +66,10 @@ A task is included (`gulp resize-sprites`) that will resize the @2x versions of 
 ### Spritesheets
 The spritesheets get generated every time you run Gulp (or manually run the `sprites` task). Usage is as follows:
 
-1. The first time you generate sprites you'll have to import two Sass files into `/sass/_base.scss`:
-  * @import "sprites/sprites-1x";
-  * @import "sprites/sprites-2x";
+1. The first time you generate sprites you'll have to import the mixin into `/sass/_base.scss`:
+  * @import "mixins/sprite";
   * *You only have to do this once.*
+1.
 
 ## Roadmap
 * Fill out ES5 and ES6 boilerplates for all included JS frameworks
