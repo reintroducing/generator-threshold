@@ -5,9 +5,8 @@ var gulp = require('gulp'),
 
 gulp.task('copy', function() {
     return gulp.src([
-            config.img + '/**',
-            config.css + '/fonts/**',
-            '.favicon.ico',
+            config.img + '/**',<% if (useIconFont) { %>
+            config.fonts + '/icomoon/fonts/**',<% } %>
             '.htaccess'<% if (useSprites) { %>,
             '!' + config.img + '/' + config.sprites<% } %>
         ], {base: '.'})

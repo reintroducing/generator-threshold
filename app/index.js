@@ -166,10 +166,10 @@ module.exports = generators.Base.extend({
         }
 
         if (this.useBackbone) {
-            this.fs.copy(this.templatePath('js/collections'), this.destinationPath('js/collections'));
-            this.fs.copy(this.templatePath('js/models'), this.destinationPath('js/models'));
-            this.fs.copy(this.templatePath('js/routers'), this.destinationPath('js/routers'));
-            this.fs.copy(this.templatePath('js/views'), this.destinationPath('js/views'));
+            this.fs.copy(this.templatePath('backbone/collections'), this.destinationPath('js/collections'));
+            this.fs.copy(this.templatePath('backbone/models'), this.destinationPath('js/models'));
+            this.fs.copy(this.templatePath('backbone/routers'), this.destinationPath('js/routers'));
+            this.fs.copy(this.templatePath('backbone/views'), this.destinationPath('js/views'));
         }
 
         if (this.useSprites) {
@@ -182,6 +182,7 @@ module.exports = generators.Base.extend({
 
         if (this.useIconFont) {
             if (!fs.existsSync(this.destinationPath('fonts'))) { fs.mkdir(this.destinationPath('fonts')); }
+            if (!fs.existsSync(this.destinationPath('fonts/icomoon'))) { fs.mkdir(this.destinationPath('fonts/icomoon')); }
 
             this.fs.copyTpl(this.templatePath('gulp/tasks/icons.js'), this.destinationPath('gulp/tasks/icons.js'), config);
         }
@@ -235,7 +236,6 @@ module.exports = generators.Base.extend({
 
         if (this.useBabel) {
             devDependencies.push(
-                'babel-eslint',
                 'babelify'
             );
         }
@@ -256,7 +256,6 @@ module.exports = generators.Base.extend({
 
         if (this.useReact) {
             devDependencies.push(
-                'babel-eslint',
                 'babelify',
                 'eslint-plugin-react'
             );
