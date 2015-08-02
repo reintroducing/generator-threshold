@@ -12,8 +12,8 @@ gulp.task('watch', ['lint'<% if (useBrowserify) { %>, 'browserify'<% } %>], func
     gulp.watch(config.sass + '/**/*.scss', ['sass']);
     gulp.watch([
         config.js + '/**/*.js',
-        '!' + config.js + '/libs/**/*.js',
-        <% if (useBrowserify) { %>'!' + config.js + '/bundle.js',<% } %>
+        '!' + config.js + '/libs/**/*.js',<% if (useBrowserify) { %>
+        '!' + config.js + '/bundle.js',<% } %>
         '!' + config.js + '/**/*.min.js'
     ], ['lint']);
 });

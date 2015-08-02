@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     spritesmith = require('gulp.spritesmith'),
     merge = require('merge-stream'),
 
-    tmpl = '../utils/spritesmith.template.mustache',
+    tmpl = './gulp/utils/spritesmith.template.mustache',
     padding = 5;
 
 gulp.task('sprites', function() {

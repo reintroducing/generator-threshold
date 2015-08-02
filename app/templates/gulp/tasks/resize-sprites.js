@@ -20,5 +20,5 @@ gulp.task('resize-sprites', function() {
         .pipe(rename(function(path) {
             path.dirname = path.dirname.substring(0, path.dirname.length - 3) + '-1x';
         }))
-        .pipe(gulp.dest(src));
+        .pipe(gulp.dest(config.sprites));
 });

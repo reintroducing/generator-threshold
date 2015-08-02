@@ -46,15 +46,19 @@ module.exports = generators.Base.extend({
                 default: 'mprzybylski@gmail.com'
             },
             {
-                type: 'confirm',
-                name: 'browserify',
-                message: 'Use Browserify?',
-                default: true
+                type: 'list',
+                name: 'esv',
+                message: 'ECMAScript version?',
+                choices: [
+                    'ES5',
+                    'ES6'
+                ],
+                default: 'ES6'
             },
             {
                 type: 'confirm',
-                name: 'babel',
-                message: 'Use Babel?',
+                name: 'browserify',
+                message: 'Use Browserify?',
                 default: true
             },
             {
@@ -94,12 +98,13 @@ module.exports = generators.Base.extend({
             this.name = answers.name;
             this.email = answers.email;
             this.useBrowserify = answers.browserify;
-            this.useBabel = answers.babel;
+            this.esv = answers.esv.toLowerCase();
             this.usejQuery = answers.jquery;
             this.useBackbone = answers.backbone;
             this.useReact = answers.react;
             this.useSprites = answers.sprites;
             this.useIconFont = answers.icons;
+            this.useBabel = (this.esv === 'es6') ? true : false;
 
             if (this.useBackbone) {
                 this.usejQuery = true;
@@ -166,10 +171,10 @@ module.exports = generators.Base.extend({
         }
 
         if (this.useBackbone) {
-            this.fs.copy(this.templatePath('backbone/collections'), this.destinationPath('js/collections'));
-            this.fs.copy(this.templatePath('backbone/models'), this.destinationPath('js/models'));
-            this.fs.copy(this.templatePath('backbone/routers'), this.destinationPath('js/routers'));
-            this.fs.copy(this.templatePath('backbone/views'), this.destinationPath('js/views'));
+            this.fs.copy(this.templatePath('backbone/' + this.esv + '/collections'), this.destinationPath('js/collections'));
+            this.fs.copy(this.templatePath('backbone/' + this.esv + '/models'), this.destinationPath('js/models'));
+            this.fs.copy(this.templatePath('backbone/' + this.esv + '/routers'), this.destinationPath('js/routers'));
+            this.fs.copy(this.templatePath('backbone/' + this.esv + '/views'), this.destinationPath('js/views'));
         }
 
         if (this.useSprites) {
@@ -191,8 +196,6 @@ module.exports = generators.Base.extend({
         //
         // test sprite usage in sass (may need actual sprites mixin)
         // also check gulp.spritesmith for better way to do retina
-        //
-        // test icon font task and implementation
         //
         // maybe a checkbox for different licenses and have them in a licenses folder
         // in templates and based on which is selected gets copied to LICENSE?

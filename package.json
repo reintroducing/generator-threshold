@@ -1,7 +1,19 @@
 {
   "name": "generator-threshold",
+  "description": "A Yeoman generator for my front-end workflow with many great options to get you up and running quickly.",
   "version": "0.1.0",
-  "description": "",
+  "homepage": "https://github.com/reintroducing/generator-threshold",
+  "author": {
+    "name": "Matt Przybylski",
+    "email": "mprzybylski@gmail.com",
+    "url": "http://www.reintroducing.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:reintroducing/generator-threshold.git"
+  },
+  "license": "MIT",
+  "main": "app/index.js",
   "files": [
     "app"
   ],

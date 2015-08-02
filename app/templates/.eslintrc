@@ -3,7 +3,6 @@
         "browser": true,
         "node": false
     },<% if (useBabel) { %>
-    "parser": "babel-eslint",
     "settings": {
         "ecmascript": 6
     },<% } %><% if (useReact) { %>

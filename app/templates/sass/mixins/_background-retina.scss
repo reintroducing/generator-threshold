@@ -1,10 +1,4 @@
 /**
- * @section Mixins
- * @subsection background-retina
- * @description Creates a retina-ready background image from the given sources.
- *
- * @mixin background-retina($normal, $retina, $retinaWidth, $retinaHeight, $contain: false, $size: false)
- *
  * Retina Backgrounds for Compass
  * by:              Gaya Kessler
  * last update:     03/11/14
@@ -15,19 +9,17 @@
  * Usage:
  * 1. create background image for pixel ratio 1 screens and put it somewhere in your images folder.
  * 2. create background image for pixel ratio 2 screens and put it somewhere in your images folder.
- * 3. include the background-image property in your Sass
+ * 3. include the background-image mixin in your Sass
  */
 @mixin background-retina($normal, $retina, $retinaWidth, $retinaHeight, $contain: false, $size: false) {
-    $path: "../images/";
-
-    background-image: url($path + $normal);
+    background-image: url($path-images + "/" + $normal);
 
     @if $size {
         background-size: $size;
     }
 
     @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-        background-image: url($path + $retina);
+        background-image: url($path-images + "/" + $retina);
 
         @if $contain == true {
             background-size: contain;
