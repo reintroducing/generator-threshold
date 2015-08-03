@@ -105,8 +105,8 @@ module.exports = generators.Base.extend({
             this.email = answers.email;
             this.site = answers.site;
             this.license = 'MIT';
-            this.useBrowserify = answers.browserify;
             this.esv = answers.esv.toLowerCase();
+            this.useBrowserify = answers.browserify;
             this.usejQuery = answers.jquery;
             this.useBackbone = answers.backbone;
             this.useReact = answers.react;
@@ -131,6 +131,9 @@ module.exports = generators.Base.extend({
                 year: new Date().getFullYear(),
                 name: this.name,
                 email: this.email,
+                site: this.site,
+                license: this.license,
+                esv: this.esv,
                 useBrowserify: this.useBrowserify,
                 useBabel: this.useBabel,
                 usejQuery: this.usejQuery,
