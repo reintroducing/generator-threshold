@@ -29,11 +29,11 @@ This will allow me to easily add new frameworks and lessen the burden of managin
   * `sudo npm install yo -g`
 1. Install the generator.
   * `sudo npm install generator-threshold -g`
+1. Run the generator and create a project.
+  * `yo threshold [app-name]`
+  * Follow the prompts to input your information.
 1. Start Gulp to run a local development server.
   * `gulp`
-
-**One Step Install/Run**
-`sudo npm i -g yo generator-threshold && gulp`
 
 ## Creating Icons
 **IMPORTANT: You should have selected "Use icon font?" when running the generator and you MUST be running the `gulp` task while performing the below steps for everything to work correctly.**
@@ -75,8 +75,10 @@ The spritesheets get generated every time you run Gulp (or manually run the `spr
   * It is recommended to name your files using kebab-case (name-of-sprite.png).
 
 ## Roadmap
-* Fill out ES5 and ES6 boilerplates for all included JS frameworks
-* Add generator input for different types of licenses to automatically generate them
+* Fill out ES5 and ES6 boilerplates for all included JS frameworks.
+* Add ES6 and Backbone ESLint rules.
+* Add unit testing support.
+* Add generator input for different types of licenses to automatically generate them.
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)

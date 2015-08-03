@@ -44,6 +44,12 @@ module.exports = generators.Base.extend({
                 name: 'email',
                 message: 'Your email',
                 default: 'mprzybylski@gmail.com'
+            },,
+            {
+                type: 'input',
+                name: 'site',
+                message: 'Your site URL',
+                default: 'http://www.reintroducing.com'
             },
             {
                 type: 'list',
@@ -97,6 +103,8 @@ module.exports = generators.Base.extend({
             this.git = answers.git;
             this.name = answers.name;
             this.email = answers.email;
+            this.site = answers.site;
+            this.license = 'MIT';
             this.useBrowserify = answers.browserify;
             this.esv = answers.esv.toLowerCase();
             this.usejQuery = answers.jquery;
@@ -139,7 +147,7 @@ module.exports = generators.Base.extend({
         this.fs.copyTpl(this.templatePath('.eslintrc'), this.destinationPath('.eslintrc'), config);
         this.fs.copyTpl(this.templatePath('gulpfile.js'), this.destinationPath('gulpfile.js'), config);
         this.fs.copyTpl(this.templatePath('index.html'), this.destinationPath('index.html'), config);
-        this.fs.copyTpl(this.templatePath('licenses/MIT'), this.destinationPath('LICENSE'), config);
+        this.fs.copyTpl(this.templatePath('licenses/' + this.license), this.destinationPath('LICENSE'), config);
         this.fs.copyTpl(this.templatePath('package.json'), this.destinationPath('package.json'), config);
         this.fs.copyTpl(this.templatePath('README.md'), this.destinationPath('README.md'), config);
 
@@ -195,9 +203,6 @@ module.exports = generators.Base.extend({
         // test lodash usage in JS with Backbone
         //
         // check gulp.spritesmith for better way to do retina
-        //
-        // maybe a checkbox for different licenses and have them in a licenses folder
-        // in templates and based on which is selected gets copied to LICENSE?
     },
 
     installDependencies: function() {

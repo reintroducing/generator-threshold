@@ -1,13 +1,18 @@
 {
   "name": "<%= slug %>",
-  "version": "0.0.1",
   "description": "<%= description %>",
-  "author": "<%= name %> <<%= email %>>",
-  "main": <% if (useBrowserify) { %>"js/app.js"<% } else { %>"js/main.js"<% } %>,
+  "version": "0.1.0",
+  "author": {
+    "name": "<%= name %>",
+    "email": "<%= email %>",
+    "url": "<%= site %>"
+  },
   "repository": {
     "type": "git",
     "url": "<%= git %>"
-  }<% if (useBrowserify && (usejQuery || useBackbone || useBabel || useReact)) { %>,
+  },
+  "license": "<%= license %>",
+  "main": <% if (useBrowserify) { %>"js/app.js"<% } else { %>"js/main.js"<% } %><% if (useBrowserify && (usejQuery || useBackbone || useBabel || useReact)) { %>,
   "browserify": {
     "transform": [
       "browserify-shim"<% if (useBackbone) { %>,
