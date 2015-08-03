@@ -1,35 +1,23 @@
 'use strict';
 
 var $ = require('jquery'),
-    Backbone = require('backbone');
+    Backbone = require('backbone'),
+    HomeView = require('../views/home/home'),
 
-Backbone.$ = $;
-
-var HomeView = require('../views/home/home'),
-    currentView = null,
-    $wrapper = $('.wrapper');
+    $wrapper = $('.wrapper'),
+    currentView;
 
 module.exports = Backbone.Router.extend({
     routes: {
         '': 'home',
-        'home': 'home'
+        home: 'home'
     },
 
-    /* ----------------------------------------------------------------------------- *\
-       Public Methods
-    \* ----------------------------------------------------------------------------- */
-
-    /**
-
-    **/
-    initialize: function() {
+    initialize: function initialize() {
         Backbone.history.start();
     },
 
-    /**
-
-    **/
-    home: function() {
+    home: function home() {
         if (currentView) { currentView.dispose(); }
         currentView = new HomeView();
 

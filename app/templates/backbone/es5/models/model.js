@@ -1,8 +1,7 @@
 'use strict';
 
-var Backbone = require('backbone'),
-    RelationalModel = require('backbone-relational');
+var Backbone = require('backbone');
 
-module.exports = Backbone.RelationalModel.extend({
+module.exports = Backbone.Model.extend({
     defaults: {}
 });

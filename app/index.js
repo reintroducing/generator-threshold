@@ -44,7 +44,7 @@ module.exports = generators.Base.extend({
                 name: 'email',
                 message: 'Your email',
                 default: 'mprzybylski@gmail.com'
-            },,
+            },
             {
                 type: 'input',
                 name: 'site',
@@ -186,6 +186,8 @@ module.exports = generators.Base.extend({
             this.fs.copy(this.templatePath('backbone/' + this.esv + '/models'), this.destinationPath('js/models'));
             this.fs.copy(this.templatePath('backbone/' + this.esv + '/routers'), this.destinationPath('js/routers'));
             this.fs.copy(this.templatePath('backbone/' + this.esv + '/views'), this.destinationPath('js/views'));
+
+            this.fs.copy(this.templatePath('backbone/templates/home'), this.destinationPath('templates/home'));
         }
 
         if (this.useSprites) {
@@ -202,10 +204,6 @@ module.exports = generators.Base.extend({
 
             this.fs.copyTpl(this.templatePath('gulp/tasks/icons.js'), this.destinationPath('gulp/tasks/icons.js'), config);
         }
-
-        // test lodash usage in JS with Backbone
-        //
-        // check gulp.spritesmith for better way to do retina
     },
 
     installDependencies: function() {

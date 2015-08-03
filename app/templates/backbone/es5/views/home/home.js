@@ -1,27 +1,16 @@
 'use strict';
 
-var AbstractView = require('../abstract/abstract'),
-    template = require('../../../templates/home/home.html');
+var template = require('../../../templates/home/home.html');
 
-module.exports = AbstractView.extend({
+module.exports = Backbone.View.extend({
     className: 'home',
     events: {},
 
-    /* ----------------------------------------------------------------------------- *\
-       Public Methods
-    \* ----------------------------------------------------------------------------- */
-
-    /**
-
-    **/
-    initialize: function(options) {
+    initialize: function initialize() {
 
     },
 
-    /**
-
-    **/
-    render: function() {
+    render: function render() {
         this.$el.html(template());
 
         return this;
