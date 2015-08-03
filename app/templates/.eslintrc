@@ -89,7 +89,6 @@
 
         // strict mode
         "strict": [2, "global"],
-        "global-strict": 0,
 
         // variables
         "no-delete-var": 2,

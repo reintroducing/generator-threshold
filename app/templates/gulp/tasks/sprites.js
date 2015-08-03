@@ -18,7 +18,9 @@ gulp.task('sprites', function() {
                 cssName: '_sprites-2x.scss',
                 cssTemplate: tmpl,
                 cssOpts: {
-                    sprite_type: '2x'
+                    sprite_type: '2x',
+                    img_dir: config.img,
+                    sprite_dir: config.sprites
                 },
                 padding: padding
             })),
@@ -28,7 +30,9 @@ gulp.task('sprites', function() {
                 cssName: '_sprites-1x.scss',
                 cssTemplate: tmpl,
                 cssOpts: {
-                    sprite_type: '1x'
+                    sprite_type: '1x',
+                    img_dir: config.img,
+                    sprite_dir: config.sprites
                 },
                 padding: padding
             })),
