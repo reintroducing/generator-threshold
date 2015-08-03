@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <div class="wrapper"></div>
+        <div <% if (useReact) { %>id<% } else { %>class<% } %>="wrapper"></div>
 
         <!-- build:js js/main.min.js -->
         <% if (usejQuery && !useBrowserify) { %><script src="node_modules/jquery/dist/jquery.js"></script><% } %>

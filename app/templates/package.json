@@ -15,9 +15,9 @@
   "main": <% if (useBrowserify) { %>"js/app.js"<% } else { %>"js/main.js"<% } %><% if (useBrowserify && (usejQuery || useBackbone || useBabel || useReact)) { %>,
   "browserify": {
     "transform": [
-      "browserify-shim"<% if (useBackbone) { %>,
-      "node-underscorify"<% } %><% if (useBabel || useReact) { %>,
-      "babelify"<% } %>
+      <% if (useBabel || useReact) { %>"babelify",<% } %>
+      <% if (useBackbone) { %>"browserify-shim",
+      "node-underscorify"<% } %>
     ]
   }<% if (usejQuery && useBackbone) { %>,
   "browser": {

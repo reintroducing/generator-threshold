@@ -141,8 +141,7 @@ module.exports = generators.Base.extend({
                 useReact: this.useReact,
                 useSprites: this.useSprites,
                 useIconFont: this.useIconFont
-            },
-            jsFile = (this.useBrowserify) ? 'app.js' : 'main.js';
+            };
 
         // general files
         this.fs.copyTpl(this.templatePath('.gitignore'), this.destinationPath('.gitignore'), config);
@@ -174,22 +173,30 @@ module.exports = generators.Base.extend({
         // sass
         this.fs.copy(this.templatePath('sass'), this.destinationPath('sass'));
 
-        // javascript
-        this.fs.copyTpl(this.templatePath('js/' + jsFile), this.destinationPath('js/' + jsFile), config);
-
         if (this.useBrowserify) {
             this.fs.copyTpl(this.templatePath('gulp/tasks/browserify.js'), this.destinationPath('gulp/tasks/browserify.js'), config);
         }
 
+        // javascript
         if (this.useBackbone) {
+            this.fs.copy(this.templatePath('backbone/' + this.esv + '/app.js'), this.destinationPath('js/app.js'));
             this.fs.copy(this.templatePath('backbone/' + this.esv + '/collections'), this.destinationPath('js/collections'));
             this.fs.copy(this.templatePath('backbone/' + this.esv + '/models'), this.destinationPath('js/models'));
             this.fs.copy(this.templatePath('backbone/' + this.esv + '/routers'), this.destinationPath('js/routers'));
             this.fs.copy(this.templatePath('backbone/' + this.esv + '/views'), this.destinationPath('js/views'));
 
             this.fs.copy(this.templatePath('backbone/templates/home'), this.destinationPath('templates/home'));
+        } else if (this.useReact) {
+            this.fs.copy(this.templatePath('react/' + this.esv + '/app.js'), this.destinationPath('js/app.js'));
+            this.fs.copy(this.templatePath('react/' + this.esv + '/components'), this.destinationPath('js/components'));
+            this.fs.copy(this.templatePath('react/' + this.esv + '/routers'), this.destinationPath('js/routers'));
+        } else {
+            var jsFile = (this.useBrowserify) ? 'app.js' : 'main.js';
+
+            this.fs.copy(this.templatePath('js/' + jsFile), this.destinationPath('js/' + jsFile));
         }
 
+        // sprites
         if (this.useSprites) {
             if (!fs.existsSync(this.destinationPath('sprites'))) { fs.mkdir(this.destinationPath('sprites')); }
             if (!fs.existsSync(this.destinationPath('sprites/source-2x'))) { fs.mkdir(this.destinationPath('sprites/source-2x')); }
@@ -198,6 +205,7 @@ module.exports = generators.Base.extend({
             this.fs.copyTpl(this.templatePath('gulp/tasks/resize-sprites.js'), this.destinationPath('gulp/tasks/resize-sprites.js'));
         }
 
+        // icon font
         if (this.useIconFont) {
             if (!fs.existsSync(this.destinationPath('fonts'))) { fs.mkdir(this.destinationPath('fonts')); }
             if (!fs.existsSync(this.destinationPath('fonts/icomoon'))) { fs.mkdir(this.destinationPath('fonts/icomoon')); }
@@ -234,12 +242,15 @@ module.exports = generators.Base.extend({
         if (this.useBrowserify) {
             devDependencies.push(
                 'browserify',
-                'browserify-shim',
                 'vinyl-buffer',
                 'vinyl-source-stream',
                 'watchify'
             );
             dependencies.push('lodash');
+
+            if (this.usejQuery || this.useBackbone) {
+                devDependencies.push('browserify-shim');
+            }
         }
 
         if (this.useBabel) {
@@ -269,7 +280,8 @@ module.exports = generators.Base.extend({
             );
             dependencies.push(
                 'classnames',
-                'react'
+                'react',
+                'react-router'
             );
         }
 
