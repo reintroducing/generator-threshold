@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
-export default class Home extends Component {
+class Home extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="home">
@@ -11,3 +15,5 @@ export default class Home extends Component {
 }
 
 Home.displayName = 'Home';
+
+export default Home;

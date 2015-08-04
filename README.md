@@ -75,7 +75,6 @@ The spritesheets get generated every time you run Gulp (or manually run the `spr
   * It is recommended to name your files using kebab-case (name-of-sprite.png).
 
 ## Roadmap
-* Make ES6 boilerplate for Backbone.
 * Add ES6 and Backbone ESLint rules.
 * Add unit testing support.
 * Add generator input for different types of licenses to automatically generate them.

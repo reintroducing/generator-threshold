@@ -64,7 +64,7 @@ module.exports = generators.Base.extend({
             {
                 type: 'confirm',
                 name: 'browserify',
-                message: 'Use Browserify?',
+                message: 'Use Browserify? (Ignored if ES6)',
                 default: true
             },
             {
@@ -76,7 +76,7 @@ module.exports = generators.Base.extend({
             {
                 type: 'confirm',
                 name: 'backbone',
-                message: 'Use Backbone?',
+                message: 'Use Backbone? (Includes jQuery)',
                 default: false
             },
             {
@@ -112,7 +112,12 @@ module.exports = generators.Base.extend({
             this.useReact = answers.react;
             this.useSprites = answers.sprites;
             this.useIconFont = answers.icons;
-            this.useBabel = (this.esv === 'es6') ? true : false;
+            this.useBabel = false;
+
+            if (this.esv === 'es6') {
+                this.useBrowserify = false;
+                this.useBabel = true;
+            }
 
             if (this.useBackbone) {
                 this.usejQuery = true;

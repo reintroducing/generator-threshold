@@ -4,7 +4,6 @@ var template = require('../../../templates/home/home.html');
 
 module.exports = Backbone.View.extend({
     className: 'home',
-    events: {},
 
     initialize: function initialize() {
 

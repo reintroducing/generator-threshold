@@ -1,7 +1,11 @@
 import React, {Component} from 'react';
 import {RouteHandler} from 'react-router';
 
-export default class App extends Component {
+class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="app">
@@ -14,3 +18,5 @@ export default class App extends Component {
 }
 
 App.displayName = 'App';
+
+export default App;
