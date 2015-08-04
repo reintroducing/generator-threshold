@@ -1,17 +1,19 @@
 {
     "env": {
         "browser": true,
-        "node": false
+        "node": false<% if (useBabel) { %>,
+        "es6": true<% } %>
     },<% if (useBabel) { %>
     "settings": {
         "ecmascript": 6
-    },<% } %><% if (useReact) { %>
-    "ecmaFeatures": {
-        "jsx": true
     },
+    "ecmaFeatures": {
+        "modules": true<% if (useReact) { %>,
+        "jsx": true<% } %>
+    }<% if (useReact) { %>,
     "plugins": [
         "react"
-    ],<% } %>
+    ]<% } %>,<% } %>
     "globals": {
         "console": true,
         "module": true,

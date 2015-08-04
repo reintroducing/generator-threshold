@@ -8,7 +8,7 @@ var React = require('react'),
     DefaultRoute = Router.DefaultRoute;
 
 module.exports = (
-    <Route name="app" handler={App} path="/">
+    <Route handler={App}>
         <DefaultRoute handler={Home} />
     </Route>
 );

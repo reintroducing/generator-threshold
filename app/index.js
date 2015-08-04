@@ -189,7 +189,10 @@ module.exports = generators.Base.extend({
         } else if (this.useReact) {
             this.fs.copy(this.templatePath('react/' + this.esv + '/app.js'), this.destinationPath('js/app.js'));
             this.fs.copy(this.templatePath('react/' + this.esv + '/components'), this.destinationPath('js/components'));
-            this.fs.copy(this.templatePath('react/' + this.esv + '/routers'), this.destinationPath('js/routers'));
+
+            if (this.esv === 'es5' ) {
+                this.fs.copy(this.templatePath('react/' + this.esv + '/routers'), this.destinationPath('js/routers'));
+            }
         } else {
             var jsFile = (this.useBrowserify) ? 'app.js' : 'main.js';
 
