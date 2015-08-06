@@ -13,7 +13,7 @@ This will allow me to easily add new frameworks and lessen the burden of managin
 * CSS Autoprefixing
 * Sourcemapping of CSS and JS (when using Browserify)
 * Minification of CSS and JS
-* Image minification **(requires the [JPEGmini app](http://www.jpegmini.com/) but can be turned off)**
+* Image minification **(requires the [JPEGmini app](http://www.jpegmini.com/) if selected)**
 * Stub JS code depending on what/if a framework is chosen
 * Options
   * Browserify with Watchify
@@ -75,7 +75,6 @@ The spritesheets get generated every time you run Gulp (or manually run the `spr
   * It is recommended to name your files using kebab-case (name-of-sprite.png).
 
 ## Roadmap
-* Add ES6 and Backbone ESLint rules.
 * Add unit testing support.
 * Add generator input for different types of licenses to automatically generate them.
 

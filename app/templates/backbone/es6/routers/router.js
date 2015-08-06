@@ -6,13 +6,6 @@ let $wrapper = $('.wrapper'),
     currentView;
 
 export default class Router extends Backbone.Router {
-    get routes() {
-        return {
-            '': 'home',
-            home: 'home'
-        };
-    }
-
     initialize() {
         Backbone.history.start();
     }
@@ -24,3 +17,8 @@ export default class Router extends Backbone.Router {
         $wrapper.append(currentView.render().el);
     }
 }
+
+Router.prototype.routes = {
+    '': 'home',
+    home: 'home'
+};

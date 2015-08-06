@@ -7,8 +7,8 @@ var gulp = require('gulp'),
 
 gulp.task('lint', function() {
     return gulp.src([
-            config.js + '/**/*.js',
-            '!' + config.js + '/libs/**/*.js',
+            config.js + '/**/*.{js,jsx}',
+            '!' + config.js + '/libs/**/*.{js,jsx}',
             <% if (useBrowserify) { %>'!' + config.js + '/bundle.js'<% } else { %>'!' + config.js + '/main.js'<% } %>,
             '!' + config.js + '/**/*.min.js'
         ])

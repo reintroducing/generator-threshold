@@ -64,7 +64,7 @@ module.exports = generators.Base.extend({
             {
                 type: 'confirm',
                 name: 'browserify',
-                message: 'Use Browserify? (Ignored if ES6)',
+                message: 'Use Browserify? (Required if ES >= 6)',
                 default: true
             },
             {
@@ -96,6 +96,12 @@ module.exports = generators.Base.extend({
                 name: 'icons',
                 message: 'Use icon font?',
                 default: false
+            },
+            {
+                type: 'confirm',
+                name: 'jpgm',
+                message: 'Use JPEGmini during image minification?',
+                default: true
             }
         ], function(answers) {
             this.title = answers.title;
@@ -112,10 +118,11 @@ module.exports = generators.Base.extend({
             this.useReact = answers.react;
             this.useSprites = answers.sprites;
             this.useIconFont = answers.icons;
+            this.useJPEGmini = answers.jpgm;
             this.useBabel = false;
 
-            if (this.esv === 'es6') {
-                this.useBrowserify = false;
+            if (this.esv !== 'es5') {
+                this.useBrowserify = true;
                 this.useBabel = true;
             }
 
@@ -145,7 +152,8 @@ module.exports = generators.Base.extend({
                 useBackbone: this.useBackbone,
                 useReact: this.useReact,
                 useSprites: this.useSprites,
-                useIconFont: this.useIconFont
+                useIconFont: this.useIconFont,
+                useJPEGmini: this.useJPEGmini
             };
 
         // general files
@@ -164,23 +172,23 @@ module.exports = generators.Base.extend({
         this.fs.copy(this.templatePath('gulp/utils'), this.destinationPath('gulp/utils'));
         this.fs.copyTpl(this.templatePath('gulp/index.js'), this.destinationPath('gulp/index.js'));
         this.fs.copyTpl(this.templatePath('gulp/config.json'), this.destinationPath('gulp/config.json'), config);
+        this.fs.copyTpl(this.templatePath('gulp/tasks/_build.js'), this.destinationPath('gulp/tasks/_build.js'), config);
+        this.fs.copyTpl(this.templatePath('gulp/tasks/_default.js'), this.destinationPath('gulp/tasks/_default.js'), config);
         this.fs.copyTpl(this.templatePath('gulp/tasks/browser-sync.js'), this.destinationPath('gulp/tasks/browser-sync.js'));
-        this.fs.copyTpl(this.templatePath('gulp/tasks/build.js'), this.destinationPath('gulp/tasks/build.js'), config);
         this.fs.copyTpl(this.templatePath('gulp/tasks/clean.js'), this.destinationPath('gulp/tasks/clean.js'));
         this.fs.copyTpl(this.templatePath('gulp/tasks/copy.js'), this.destinationPath('gulp/tasks/copy.js'), config);
-        this.fs.copyTpl(this.templatePath('gulp/tasks/default.js'), this.destinationPath('gulp/tasks/default.js'), config);
-        this.fs.copyTpl(this.templatePath('gulp/tasks/imagemin.js'), this.destinationPath('gulp/tasks/imagemin.js'));
+        this.fs.copyTpl(this.templatePath('gulp/tasks/imagemin.js'), this.destinationPath('gulp/tasks/imagemin.js'), config);
         this.fs.copyTpl(this.templatePath('gulp/tasks/lint.js'), this.destinationPath('gulp/tasks/lint.js'), config);
         this.fs.copyTpl(this.templatePath('gulp/tasks/sass.js'), this.destinationPath('gulp/tasks/sass.js'));
         this.fs.copyTpl(this.templatePath('gulp/tasks/usemin.js'), this.destinationPath('gulp/tasks/usemin.js'));
         this.fs.copyTpl(this.templatePath('gulp/tasks/watch.js'), this.destinationPath('gulp/tasks/watch.js'), config);
 
-        // sass
-        this.fs.copy(this.templatePath('sass'), this.destinationPath('sass'));
-
         if (this.useBrowserify) {
             this.fs.copyTpl(this.templatePath('gulp/tasks/browserify.js'), this.destinationPath('gulp/tasks/browserify.js'), config);
         }
+
+        // sass
+        this.fs.copy(this.templatePath('sass'), this.destinationPath('sass'));
 
         // javascript
         if (this.useBackbone) {
@@ -195,7 +203,7 @@ module.exports = generators.Base.extend({
             this.fs.copy(this.templatePath('react/' + this.esv + '/app.js'), this.destinationPath('js/app.js'));
             this.fs.copy(this.templatePath('react/' + this.esv + '/components'), this.destinationPath('js/components'));
 
-            if (this.esv === 'es5' ) {
+            if (!this.useBabel) {
                 this.fs.copy(this.templatePath('react/' + this.esv + '/routers'), this.destinationPath('js/routers'));
             }
         } else {

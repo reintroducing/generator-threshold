@@ -11,8 +11,8 @@ gulp.task('watch', ['lint'<% if (useBrowserify) { %>, 'browserify'<% } %>], func
     <% if (useIconFont) { %>gulp.watch(config.fonts + '/icomoon/**/*.*', ['icons']);<% } %>
     gulp.watch(config.sass + '/**/*.scss', ['sass']);
     gulp.watch([
-        config.js + '/**/*.js',
-        '!' + config.js + '/libs/**/*.js',<% if (useBrowserify) { %>
+        config.js + '/**/*.{js,jsx}',
+        '!' + config.js + '/libs/**/*.{js,jsx}',<% if (useBrowserify) { %>
         '!' + config.js + '/bundle.js',<% } %>
         '!' + config.js + '/**/*.min.js'
     ], ['lint']);

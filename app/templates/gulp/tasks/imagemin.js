@@ -5,5 +5,5 @@ var gulp = require('gulp'),
     shell = require('gulp-shell');
 
 gulp.task('imagemin', shell.task([
-    'imageoptim -d ' + config.dist + '/' + config.img + ' -a -j -q'
+    'imageoptim -d ' + config.dist + '/' + config.img + ' -a<% if (useJPEGmini) { %> -j<% } %> -q'
 ]));
