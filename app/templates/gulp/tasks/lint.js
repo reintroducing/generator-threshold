@@ -3,6 +3,7 @@
 var gulp = require('gulp'),
     config = require('../config.json'),
     eslint = require('gulp-eslint'),
+    friendlyFormatter = require('eslint-friendly-formatter'),
     handleErrors = require('../utils/handle-errors');
 
 gulp.task('lint', function() {
@@ -13,7 +14,7 @@ gulp.task('lint', function() {
             '!' + config.js + '/**/*.min.js'
         ])
         .pipe(eslint())
-        .pipe(eslint.format())
+        .pipe(eslint.format(friendlyFormatter))
         .pipe(eslint.failAfterError())
         .on('error', handleErrors);
 });

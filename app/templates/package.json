@@ -1,7 +1,7 @@
 {
   "name": "<%= slug %>",
   "description": "<%= description %>",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>",
@@ -15,8 +15,8 @@
   "main": <% if (useBrowserify) { %>"js/app.js"<% } else { %>"js/main.js"<% } %><% if (useBrowserify && (usejQuery || useBackbone || useBabel || useReact)) { %>,
   "browserify": {
     "transform": [
-      <% if (useBabel || useReact) { %>"babelify",<% } %>
-      <% if (useBackbone) { %>"browserify-shim",
+      <% if (useBabel || useReact) { %>"babelify"<% } %><% if (useBackbone) { %><% if (useBabel || useReact) { %>,
+      <% } %>"browserify-shim",
       "node-underscorify"<% } %>
     ]
   }<% if (usejQuery && useBackbone) { %>,

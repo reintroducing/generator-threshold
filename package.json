@@ -18,7 +18,22 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "backbone",
+    "react",
+    "sass",
+    "css",
+    "javascript",
+    "front-end",
+    "eslint",
+    "gulp",
+    "autoprefixer",
+    "babel",
+    "jquery",
+    "lodash",
+    "sprites",
+    "icon fonts",
+    "icomoon"
   ],
   "dependencies": {
     "lodash": "^3.10.0",

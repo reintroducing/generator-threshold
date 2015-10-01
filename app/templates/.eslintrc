@@ -116,7 +116,7 @@
         "computed-property-spacing": [2, "never"],
         "consistent-this": [2, "self"],
         "eol-last": 2,
-        "func-names": 2,
+        "func-names": 0,
         "func-style": [2, "expression"],
         "quotes": [1, "single"],
         "no-underscore-dangle": 0,
@@ -126,21 +126,73 @@
         }]<% if (useReact) { %>,
 
         // react
-        "react/display-name": 2,
-        "react/jsx-quotes": [2, "double", "avoid-escape"],
-        "react/jsx-uses-react": 1,
-        "react/jsx-uses-vars": 1,
+        "react/display-name": 0,
+        "react/jsx-boolean-value": 0,
+        "react/jsx-closing-bracket-location": 2,
+        "react/jsx-curly-spacing": 2,
+        "react/jsx-indent-props": [2, 4],
+        "react/jsx-max-props-per-line": 0,
+        "react/jsx-no-duplicate-props": 2,
+        "react/jsx-no-literals": 0,
+        "react/jsx-no-undef": 2,
+        "react/jsx-sort-prop-types": 0,
+        "react/jsx-sort-props": 0,
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
+        "react/no-danger": 2,
         "react/no-did-mount-set-state": [1, "allow-in-func"],
         "react/no-did-update-set-state": 1,
-        "react/no-multi-comp": 1,
-        "react/no-unknown-property": 1,
-        "react/prop-types": 1,
-        "react/self-closing-comp": 1,
-        "react/wrap-multilines": 1<% } %><% if (useBackbone) { %>,
+        "react/no-multi-comp": 2,
+        "react/no-set-state": 0,
+        "react/no-unknown-property": 2,
+        "react/prop-types": 2,
+        "react/react-in-jsx-scope": 0,
+        "react/require-extension": 2,
+        "react/self-closing-comp": 2,
+        "react/sort-comp": 2,
+        "react/wrap-multilines": 2<% } %><% if (useBackbone) { %>,
 
         // backbone
-        // https://github.com/ilyavolodin/eslint-plugin-backbone
-        <% } %><% if (useBabel) { %>
+        "backbone/collection-model": 2,
+        "backbone/defaults-on-top": 2,
+        "backbone/event-scope": 0, // unfortunately this errors on jQuery events too which can't pass scope
+        "backbone/events-on-top": [2, [
+            "id",
+            "el",
+            "tagName",
+            "className"
+        ]],
+        "backbone/initialize-on-top": [2, {
+            View: [
+                "id",
+                "el",
+                "tagName",
+                "className",
+                "events"
+            ],
+            Model: [
+                "defaults",
+                "url",
+                "urlRoot"
+            ],
+            Collection: [
+                "model",
+                "url",
+                "comparator"
+            ]
+        }],
+        "backbone/model-defaults": 2,
+        "backbone/no-changed-set": 2,
+        "backbone/no-collection-models": 2,
+        "backbone/no-constructor": 2,
+        "backbone/no-el-assign": 2,
+        "backbone/no-model-attributes": 2,
+        "backbone/no-native-jquery": 0,
+        "backbone/no-silent": 0,
+        "backbone/no-view-collection-models": 2,
+        "backbone/no-view-model-attributes": 2,
+        "backbone/no-view-onoff-binding": 2,
+        "backbone/render-return": 2<% } %><% if (useBabel) { %>,
 
         // es6
         <% } %>
