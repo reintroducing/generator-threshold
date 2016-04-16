@@ -234,6 +234,7 @@ module.exports = generators.Base.extend({
         var devDependencies = [
                 'browser-sync',
                 'del',
+                'eslint-friendly-formatter',
                 'gulp',
                 'gulp-autoprefixer',
                 'gulp-eslint',
@@ -281,7 +282,8 @@ module.exports = generators.Base.extend({
 
         if (this.useBackbone) {
             devDependencies.push(
-                'node-underscorify'
+                'node-underscorify',
+                'eslint-plugin-backbone'
             );
             dependencies.push(
                 'backbone',

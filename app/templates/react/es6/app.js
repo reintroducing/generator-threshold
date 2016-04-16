@@ -11,7 +11,6 @@ let routes = (
 
 Router.run(
     routes,
-    Router.HistoryLocation,
     (Handler, state) => {
         React.render(<Handler params={state.params} />, document.getElementById('wrapper'));
     }
